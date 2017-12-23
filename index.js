@@ -19,7 +19,7 @@ exports.handler = (event, context, callback) => {
         && params.aspect_type === strava.ASPECT_TYPE_CREATE
         && params.object_id) {
         // Tell tori all about my bike ride!
-        notificationService.sendStravaRideFinished(params.object_id, config.toriPhoneNumber)
+        notificationService.sendStravaRideFinished(params.object_id, config.twilio.toriPhoneNumber)
             .then((message) => {
                 console.log('Notification sent: ' + message);
             })
