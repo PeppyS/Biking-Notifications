@@ -4,6 +4,7 @@
 var BikeRide = function () {
     /**
      * Bike rider's name (probably Peppy)
+     *
      * @type {string}
      * @private
      */
@@ -62,6 +63,8 @@ Object.assign(BikeRide.prototype, {
     }),
 
     /**
+     * Get biker name
+     *
      * @returns {string}
      */
     getName: (() => {
@@ -69,6 +72,8 @@ Object.assign(BikeRide.prototype, {
     }),
 
     /**
+     * Get bike ride label
+     *
      * @returns {string}
      */
     getLabel: (() => {
@@ -76,6 +81,8 @@ Object.assign(BikeRide.prototype, {
     }),
 
     /**
+     * Get number of miles ridden
+     *
      * @returns {Number}
      */
     getMiles: (() => {
@@ -83,6 +90,8 @@ Object.assign(BikeRide.prototype, {
     }),
 
     /**
+     * Get bike ride time in minutes
+     *
      * @returns {Number}
      */
     getTime: (() => {
@@ -90,6 +99,8 @@ Object.assign(BikeRide.prototype, {
     }),
 
     /**
+     * Get address from start of bike ride
+     *
      * @returns {string}
      */
     getFromAddress: (() => {
@@ -97,6 +108,8 @@ Object.assign(BikeRide.prototype, {
     }),
 
     /**
+     * Get address from end of bike ride
+     *
      * @returns {string}
      */
     getToAddress: (() => {
@@ -104,6 +117,8 @@ Object.assign(BikeRide.prototype, {
     }),
 
     /**
+     * Set biker name
+     *
      * @param {string} name
      */
     setName: (name => {
@@ -111,6 +126,8 @@ Object.assign(BikeRide.prototype, {
     }),
 
     /**
+     * Set bike ride lable
+     *
      * @param {string} label
      */
     setLabel: (label => {
@@ -118,6 +135,8 @@ Object.assign(BikeRide.prototype, {
     }),
 
     /**
+     * Set number of miles ridden
+     *
      * @param {Number} miles
      */
     setMiles: (miles => {
@@ -125,6 +144,8 @@ Object.assign(BikeRide.prototype, {
     }),
 
     /**
+     * Set number of minutes elapsed during bike ride
+     *
      * @param {Number} time
      */
     setTime: (time => {
@@ -132,6 +153,8 @@ Object.assign(BikeRide.prototype, {
     }),
 
     /**
+     * Set address of start of bike ride
+     *
      * @param {string} fromAddress
      */
     setFromAddress: (fromAddress => {
@@ -139,6 +162,8 @@ Object.assign(BikeRide.prototype, {
     }),
 
     /**
+     * Set address of end of bike ride
+     *
      * @param {string} toAddress
      */
     setToAddress: (toAddress => {
