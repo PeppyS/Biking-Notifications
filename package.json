@@ -1,0 +1,22 @@
+{
+  "name": "strava-notifications",
+  "version": "1.0.0",
+  "description": "Notifies my wife whenever I finish a bike ride",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "package": "rm -f strava-notifications.zip && zip -r strava-notifications.zip ."
+  },
+  "keywords": [
+    "biking",
+    "notification",
+    "strava",
+    "node"
+  ],
+  "author": "Peppy Sisay",
+  "license": "ISC",
+  "dependencies": {
+    "strava-v3": "^1.14.0",
+    "twilio": "^3.10.1"
+  }
+}
