@@ -58,8 +58,9 @@ Object.assign(BikeRide.prototype, {
      * @returns {string}
      */
     getSummary: (() => {
-        return this._name + ' just finshed ride: ' + this._label + ' - Biking ' + this._miles + ' miles in '
-            + this._time + ' minutes, from ' + this._fromAddress + ' to ' + this._toAddress;
+        return 'Biker Pep\n\nYour handsome husband ' + this._name + ' just finshed up his bike ride!\n\n'
+        + this._label + '\n\nMiles - ' + this._miles + '\nTime - '+ this._time +
+            (this._fromAddress && this._toAddress ? '\nStart - ' + this._fromAddress + '\nFinish - ' + this._toAddress : '');
     }),
 
     /**

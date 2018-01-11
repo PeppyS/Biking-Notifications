@@ -28,6 +28,8 @@ module.exports = {
                     );
                     bikeRide.setTime(
                         numberUtils.round(activity.moving_time / numberUtils.SECONDS_IN_A_MINUTE, 2)
+                            .toString()
+                            .replace('.', ':')
                     );
 
                     // Return promise grabbing additional location context
@@ -37,10 +39,13 @@ module.exports = {
                     ]);
                 })
                 .then((addresses) => {
+                    // Add address to ride model if fetched successfully
                     bikeRide.setFromAddress(addresses[0]);
                     bikeRide.setToAddress(addresses[1]);
-
-                    // Return promise initiating text
+                }, (error) => {
+                    console.log('Error: ' + error);
+                })
+                .then(() => {
                     return twilioService.send(
                         bikeRide.getSummary(),
                         toPhoneNumber

@@ -11,7 +11,9 @@ const notificationService = require('./services/notification');
  */
 exports.handler = (event, context, callback) => {
     var params = (JSON.parse(event.body) || {}),
-        bodyMessage;
+        response = {
+            queryParams: params
+        };
 
     // Validate given params
     if (parseInt(params.owner_id, 10) === config.strava.peppyUserId
@@ -21,31 +23,21 @@ exports.handler = (event, context, callback) => {
         // Tell tori all about my bike ride!
         notificationService.sendStravaRideFinished(params.object_id, config.twilio.toriPhoneNumber)
             .then((message) => {
-                console.log('Notification sent: ' + message);
+                response.success = true;
+                response.message = 'Notification sent: ' + message;
             })
             .catch((error) => {
-                console.log('Error: ' + error);
+                response.success = false;
+                response.message = 'Error: ' + error;
             });
-
-        bodyMessage = JSON.stringify({
-            response: {
-                success: true,
-                message: 'Notification sent',
-                params: params
-            }
-        });
     } else {
-        bodyMessage = JSON.stringify({
-            response: {
-                success: false,
-                message: 'Invalid params given',
-                params: params
-            }
-        });
+        response.success = false;
+        response.message = 'Invalid params given';
     }
 
     callback(null, {
         statusCode: 200,
-        body: bodyMessage
+        body: JSON.stringify(response)
     });
+    console.log(response);
 };

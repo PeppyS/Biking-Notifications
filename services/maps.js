@@ -16,7 +16,7 @@ module.exports = {
             request.get('http://maps.googleapis.com/maps/api/geocode/json?latlng=' + lattitude + ',' + longitude + '&sensor=true',
                 (error, response, body) => {
                     const responseJson = JSON.parse(body);
-                    
+
                     if (responseJson && responseJson.results && responseJson.results[0]
                         && responseJson.results[0].formatted_address) {
                         resolve(responseJson.results[0].formatted_address);
