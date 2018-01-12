@@ -23,16 +23,12 @@ exports.handler = (event, context, callback) => {
         // Tell tori all about my bike ride!
         notificationService.sendStravaRideFinished(params.object_id, config.twilio.toriPhoneNumber)
             .then((message) => {
-                response.success = true;
-                response.message = 'Notification sent: ' + message;
-            })
-            .catch((error) => {
-                response.success = false;
-                response.message = 'Error: ' + error;
+                console.log('Notification sent: ' + message);
+            }, (error) => {
+                console.log('Error: ' + error);
             });
     } else {
-        response.success = false;
-        response.message = 'Invalid params given';
+        response.error = 'Invalid params given';
     }
 
     callback(null, {
