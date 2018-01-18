@@ -21,7 +21,7 @@ module.exports = {
                         && responseJson.results[0].formatted_address) {
                         resolve(responseJson.results[0].formatted_address);
                     } else {
-                        reject('Problem fetching address.');
+                        reject('Problem fetching address for lattitude, longitude: ' + lattitude + ', ' + longitude);
                     }
                 });
         });
