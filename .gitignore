@@ -1,5 +1,7 @@
-node_modules/*
-secrets.json
-cli.js
-data/*
+node_modules
+
+.env
+
+dist
+
 *.zip
