@@ -39,8 +39,6 @@ exports.handler = async (event, context, callback) => {
  * @param {number} stravaActivityId 
  */
 export const handleStravaActivityFinished = async (stravaActivityId) => {
-    const activity = await strava.getActivity(stravaActivityId)
-
     // Tell tori all about my bike ride!
-    await notification.sendStravaRideFinished(activity, config.TORI_PHONE_NUMBER)
+    await notification.sendStravaRideFinished(stravaActivityId, config.TORI_PHONE_NUMBER)
 }

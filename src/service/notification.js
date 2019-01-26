@@ -1,4 +1,5 @@
 import maps from '../lib/maps'
+import strava from '../lib/strava'
 import twilio from '../lib/twilio'
 
 import numberUtils from '../utils/number'
@@ -12,10 +13,12 @@ export default {
     /**
      * Sends notification related to strava activity finished
      *
-     * @param {{}}} stravaActivity
+     * @param {number} stravaActivityId
      * @param {string} toPhoneNumber
      */
-    sendStravaRideFinished: async (stravaActivity, toPhoneNumber) => {
+    sendStravaRideFinished: async (stravaActivityId, toPhoneNumber) => {
+        const stravaActivity = await strava.getActivity(stravaActivityId)
+
         const bikeRide = new BikeRide({
             name: 'Peppy',
             label: stravaActivity.name,
