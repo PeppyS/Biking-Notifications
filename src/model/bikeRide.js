@@ -14,15 +14,14 @@ export default class BikeRide {
      */
     getSummary() {
         return (
-            `\nBiker Pep\n\n
-Your handsome husband ${this.name} just finished his bike ride!\n\n
-${this.label}\n\n
-Miles - ${this.miles}\n
-Time - ${this.time}
-` + (this.fromAddress && this.toAddress ? `\n
-Start - ${this.fromAddress}\n
-Finish - ${this.toAddress}` : '')
-        )
+            `\nBiker Pep\n\n`
+            + `Your handsome husband ${this.name} just finished his bike ride!\n\n`
+            + `${this.label}\n\n`
+            + `Miles - ${this.miles}\n`
+            + `Time - ${this.time}`
+            + (this.fromAddress && this.toAddress
+                ? `\nStart - ${this.fromAddress}\n`
+                + `Finish - ${this.toAddress}`
+                : ''))
     }
 }
-
